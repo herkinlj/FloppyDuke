@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43a20ebf-64fc-4c47-940a-21dc0077d304" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drivers/SideScrollGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drivers/SideScrollGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FloppyDuke.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FloppyDuke.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drivers/SideScrollGame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drivers/SideScrollGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drivers/SideScrollGame.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2ebKXk3vm2YH0ElYu3Uf5OqMVA4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -40,6 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -48,9 +51,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,7 +65,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712167881145</updated>
-      <workItem from="1713316342321" duration="2510000" />
+      <workItem from="1713316342321" duration="4040000" />
+      <workItem from="1713739765482" duration="3158000" />
     </task>
     <servers />
   </component>
