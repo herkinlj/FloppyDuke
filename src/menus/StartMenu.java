@@ -28,10 +28,10 @@ public class StartMenu extends Stage implements ActionListener, KeyListener
 
   private static final Color ROYAL_PURPLE = new Color(0x7851a9);
   private static final Color DUKES_GOLD = new Color(0xFFDF00);
+  private static final Color BACKGROUND_COLOR = Color.black;
   private TransformableContent startLabel;
   private TransformableContent optionsLabel;
   private TransformableContent exitLabel;
-  private JButton startButton, exitButton, optionsButton;
 
 
   private ResourceFinder finder;
