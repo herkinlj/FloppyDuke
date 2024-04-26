@@ -8,6 +8,7 @@ import visual.VisualizationView;
 import visual.dynamic.described.Stage;
 import visual.statik.TransformableContent;
 
+import java.awt.AWTKeyStroke;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Shape;
@@ -17,13 +18,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
- *
  * @author Liam J Herkins
  * @version 4/22/24
- *
  */
-public class StartMenu extends Stage implements ActionListener, KeyListener
+public class StartMenu extends Stage implements KeyListener
 {
 
   private static final Color ROYAL_PURPLE = new Color(0x7851a9);
@@ -32,26 +30,15 @@ public class StartMenu extends Stage implements ActionListener, KeyListener
   private TransformableContent startLabel;
   private TransformableContent optionsLabel;
   private TransformableContent exitLabel;
-
-
   private ResourceFinder finder;
+
+  /**
+   *
+   */
   public StartMenu()
   {
     super(100);
     finder = ResourceFinder.createInstance(new Marker());
-
-
-  }
-
-  /**
-   * Invoked when an action occurs.
-   *
-   * @param e
-   *     the event to be processed
-   */
-  @Override
-  public void actionPerformed(ActionEvent e)
-  {
 
   }
 
@@ -65,7 +52,7 @@ public class StartMenu extends Stage implements ActionListener, KeyListener
   @Override
   public void keyTyped(KeyEvent e)
   {
-
+  // not needed
   }
 
   /**
@@ -78,7 +65,20 @@ public class StartMenu extends Stage implements ActionListener, KeyListener
   @Override
   public void keyPressed(KeyEvent e)
   {
-
+    switch (e.getKeyCode())
+    {
+      case KeyEvent.VK_ENTER:
+        handleStart();
+        break;
+      case KeyEvent.VK_ESCAPE:
+        handleExit();
+        break;
+      case KeyEvent.VK_WINDOWS:
+        handleOptions();
+        break;
+      default:
+        break;
+    }
   }
 
   /**
@@ -90,6 +90,27 @@ public class StartMenu extends Stage implements ActionListener, KeyListener
    */
   @Override
   public void keyReleased(KeyEvent e)
+  {
+    // not needed
+  }
+
+  /**
+   *
+   */
+  public void handleStart()
+  {
+
+  }
+
+  /**
+   *
+   */
+  public void handleOptions()
+  {
+
+  }
+
+  public void handleExit()
   {
 
   }
