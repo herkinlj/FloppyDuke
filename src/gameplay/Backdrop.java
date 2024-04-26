@@ -16,7 +16,7 @@ public class Backdrop extends Stage
 {
 
   private ResourceFinder finder;
-  private BufferedImage wilsonHallImg;
+  private BufferedImage backdropImg;
   private visual.statik.sampled.Content wilsonContent;
 
   /**
@@ -27,13 +27,18 @@ public class Backdrop extends Stage
   {
     super(100);
     finder = ResourceFinder.createInstance(new Marker());
-    InputStream iStreamWilson;
-    iStreamWilson = finder.findInputStream("wilson_hall.jpg");
-    wilsonHallImg = ImageIO.read(iStreamWilson);
-    wilsonContent = new Content(wilsonHallImg, 0, 0);
+    InputStream isStreamBackdrop;
+    isStreamBackdrop = finder.findInputStream("blue_ridge_backdrop.jpg");
+    backdropImg = ImageIO.read(isStreamBackdrop);
+    wilsonContent = new Content(backdropImg, 0, 0);
+    wilsonContent.setScale(.5);
     add(wilsonContent);
   }
 
+  public Content getWilsonContent()
+  {
+    return wilsonContent;
+  }
 }
 
 
