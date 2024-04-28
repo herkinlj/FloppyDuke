@@ -38,7 +38,6 @@ public class SunbeltSprite extends SampledSprite
     finder = ResourceFinder.createInstance(new Marker());
     contentFactory = new ContentFactory();
     setLocation(100, 100);
-    setVisible(true);
     setEndState(REMAIN);
 
   }

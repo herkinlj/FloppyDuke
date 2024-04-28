@@ -44,14 +44,15 @@ public class FloppyDriver extends JApplication
       // test for adding a sunbelt sprite
       SunbeltSprite sunbeltSprite = new SunbeltSprite();
       sunbeltSprite.loadImgToSprite("georgia_south" + SunbeltSprite.PNG);
-      sunbeltSprite.addKeyTime(1, 310, 255, sunbeltSprite.getContent());
-      sunbeltSprite.addKeyTime(2, 314, 234, null);
-      sunbeltSprite.addKeyTime(3, 401, 231, null);
+      sunbeltSprite.addKeyTime(0, 310, 255, sunbeltSprite.getContent());
+
+      sunbeltSprite.addKeyTime(2, 311, 255, null);
+
+      //      sunbeltSprite.addKeyTime(2, 314, 234, null);
+      //      sunbeltSprite.addKeyTime(3, 401, 231, null);
       backdrop.add(sunbeltSprite);
 
-
       stageView.setBounds(0, 0, WIDTH, HEIGHT);
-
 
       contentPane.add(stageView);
       backdrop.start();
