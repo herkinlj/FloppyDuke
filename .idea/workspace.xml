@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="43a20ebf-64fc-4c47-940a-21dc0077d304" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/driver/FloppyDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/driver/FloppyDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameplay/BernySprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameplay/BernySprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameplay/SunbeltSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameplay/SunbeltSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/berny.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/berny.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,21 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="floppyTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="gameplay_no_multi.Backdrop2" />
+      <module name="FloppyDuke" />
+      <option name="PROGRAM_PARAMETERS" value="1 1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +84,8 @@
       <workItem from="1713316342321" duration="4040000" />
       <workItem from="1713739765482" duration="4209000" />
       <workItem from="1713997349781" duration="1378000" />
-      <workItem from="1714006975338" duration="260000" />
+      <workItem from="1714006975338" duration="711000" />
+      <workItem from="1714344738756" duration="19825000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,9 @@ import visual.statik.sampled.ContentFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class FloppyDriver extends JApplication
 {
@@ -43,7 +45,7 @@ public class FloppyDriver extends JApplication
 
       // test for adding a sunbelt sprite
       SunbeltSprite sunbeltSprite = new SunbeltSprite();
-      sunbeltSprite.loadImgToSprite("georgia_south" + SunbeltSprite.PNG);
+      HashMap<String, BufferedImage> testMap = sunbeltSprite.getTeamImgMap();
       sunbeltSprite.addKeyTime(0, 310, 255, sunbeltSprite.getContent());
 
       sunbeltSprite.addKeyTime(2, 311, 255, null);

@@ -12,6 +12,7 @@ import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Queue;
@@ -28,6 +29,7 @@ public class SunbeltSprite extends SampledSprite
   private String teamName;
   private ContentFactory contentFactory;
   private visual.statik.sampled.Content logoContent;
+  private HashMap<String, BufferedImage> teamImgMap;
 
   /**
    *
@@ -36,24 +38,14 @@ public class SunbeltSprite extends SampledSprite
   {
     super();
     finder = ResourceFinder.createInstance(new Marker());
+    loadImgContent();
     contentFactory = new ContentFactory();
     setLocation(100, 100);
     setEndState(REMAIN);
 
-  }
-
-  /**
-   * @param fileName
-   * @throws IOException
-   */
-  public void loadImgToSprite(final String fileName) throws IOException
-  {
-    teamName = fileName;
-    InputStream ioStream = finder.findInputStream(fileName);
-    currTeam = ImageIO.read(ioStream);
-    logoContent = contentFactory.createContent(currTeam);
 
   }
+
 
   /**
    *
@@ -98,4 +90,27 @@ public class SunbeltSprite extends SampledSprite
     return logoContent;
   }
 
+  /**
+   *
+   * @throws IOException
+   */
+  private void loadImgContent() throws IOException
+  {
+    finder = ResourceFinder.createInstance(Marker.class);
+    InputStream ioStream;
+    for (String name : TEAM_NAMES)
+    {
+      ioStream = finder.findInputStream(name + PNG);
+      teamImgMap.put(name, ImageIO.read(ioStream));
+    }
+  }
+
+  /**
+   *
+   * @return
+   */
+  public HashMap<String, BufferedImage> getTeamImgMap()
+  {
+    return teamImgMap;
+  }
 }

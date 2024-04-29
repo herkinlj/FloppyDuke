@@ -1,18 +1,18 @@
-package gameplay;
+package inputs;
 
-import visual.dynamic.described.SampledSprite;
+import take3.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class BernySprite extends SampledSprite implements KeyListener
+public class KeyboardInputs implements KeyListener
 {
+  private GamePanel gamePanel;
 
-  public BernySprite()
+  public KeyboardInputs(GamePanel gp)
   {
-    super();
+    this.gamePanel = gp;
   }
-
   /**
    * Invoked when a key has been typed. See the class description for {@link KeyEvent} for a
    * definition of a key typed event.
@@ -36,7 +36,24 @@ public class BernySprite extends SampledSprite implements KeyListener
   @Override
   public void keyPressed(KeyEvent e)
   {
+    switch (e.getKeyCode())
+    {
+      case KeyEvent.VK_A:
+        gamePanel.moveDx(-5);
+        break;
+      case KeyEvent.VK_W:
+        gamePanel.moveDy(-5);
+        break;
+      case KeyEvent.VK_S:
+        gamePanel.moveDy(5);
+        break;
+      case KeyEvent.VK_D:
+        gamePanel.moveDx(5);
+        break;
+      default:
+        break;
 
+    }
   }
 
   /**
