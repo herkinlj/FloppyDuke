@@ -4,17 +4,14 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
-import gameplay.SunbeltSprite;
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
 import io.ResourceFinder;
 import static utils.Constants.*;
-import static utils.Constants.PlayerConstants.GetSpriteAmount;
+import static utils.Constants.Directions.*;
+import static utils.Constants.PlayerConstants.*;
 
 import resources.Marker;
 
@@ -27,7 +24,9 @@ public class GamePanel extends JPanel {
   private BufferedImage[][] animations;
   private BufferedImage[] teams = new BufferedImage[13];
   private int animationTick, animationIndex, animationSpeed = 30;
-  private int playerAction;
+  private int playerAction = IDLE;
+  private int playerDirection = -1;
+  private boolean moving = false;
 
 
 
@@ -74,14 +73,20 @@ public class GamePanel extends JPanel {
     setMinimumSize(dimension);
     setPreferredSize(dimension);
   }
-  public void changeXDelta(int value) {
-    this.xDelta += value;
 
+  /**
+   *
+   * @param dir
+   */
+  public void setPlayerDirection(int dir)
+  {
+    playerDirection = dir;
+    moving = true;
   }
 
-  public void changeYDelta(int value) {
-    this.yDelta += value;
-
+  public void setMoving(boolean isMoving)
+  {
+    moving = isMoving;
   }
 
   public void updateAnimationTick()
@@ -97,17 +102,46 @@ public class GamePanel extends JPanel {
       }
     }
   }
+
+  /**
+   *
+   */
   public void updateGame() {
-
     updateAnimationTick();
-
   }
 
+  private void setAnimation()
+  {
+    if (moving)
+      playerAction = RUNNING;
+    else
+      playerAction = IDLE;
+  }
 
+  private void updatePosition()
+  {
+    if (moving)
+      switch (playerDirection)
+      {
+        case LEFT:
+          xDelta -= 5;
+          break;
+        case RIGHT:
+          xDelta += 5;
+          break;
+        case UP:
+          yDelta -= 5;
+          break;
+        case DOWN:
+          yDelta += 5;
+          break;
+      }
+  }
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-
     updateAnimationTick();
+    setAnimation();
+    updatePosition();
     g.drawImage(img.getScaledInstance(100, 100, Image.SCALE_DEFAULT), (int) xDelta, (int) yDelta , null);
 
   }

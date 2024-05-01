@@ -1,4 +1,5 @@
 package take3;
+import take3.*;
 
 import java.io.IOException;
 
@@ -7,7 +8,6 @@ public class Game implements Runnable {
   private GameWindow gameWindow;
   private GamePanel gamePanel;
   private Thread gameThread;
-
   private final int FPS_SET = 120;
   private final int UPS_SET = 200;
 
@@ -25,10 +25,10 @@ public class Game implements Runnable {
     gameThread = new Thread(this);
     gameThread.start();
   }
+
   public void update() {
     gamePanel.updateGame();
   }
-
 
   @Override
   public void run() {
@@ -72,7 +72,6 @@ public class Game implements Runnable {
 
       }
     }
-
 
   }
 

@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import take3.Game;
 import take3.GamePanel;
+import static utils.Constants.Directions.*;
 
 public class KeyboardInputs implements KeyListener {
 
@@ -23,24 +24,42 @@ public class KeyboardInputs implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     // TODO Auto-generated method stub
+    switch (e.getKeyCode()) {
+      case KeyEvent.VK_W:
+        gamePanel.setMoving(false);
+        break;
+      case KeyEvent.VK_A:
+        gamePanel.setMoving(false);
+        break;
+      case KeyEvent.VK_S:
+        gamePanel.setMoving(false);
+        break;
+      case KeyEvent.VK_D:
+        gamePanel.setMoving(false);
+        break;
+    }
 
   }
 
+  /**
+   *
+   * @param e the event to be processed
+   */
   @Override
   public void keyPressed(KeyEvent e) {
 
     switch (e.getKeyCode()) {
       case KeyEvent.VK_W:
-        gamePanel.changeYDelta(-5);
+        gamePanel.setPlayerDirection(UP);
         break;
       case KeyEvent.VK_A:
-        gamePanel.changeXDelta(-5);
+        gamePanel.setPlayerDirection(LEFT);
         break;
       case KeyEvent.VK_S:
-        gamePanel.changeYDelta(5);
+        gamePanel.setPlayerDirection(DOWN);
         break;
       case KeyEvent.VK_D:
-        gamePanel.changeXDelta(5);
+        gamePanel.setPlayerDirection(RIGHT);
         break;
     }
 
