@@ -9,9 +9,11 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -44,12 +46,11 @@ public class Game extends JPanel implements KeyListener {
   public Game() throws IOException, FontFormatException
   {
     setPanelSize();
-    setFocusable(true);
     resourceFinder = ResourceFinder.createInstance(Marker.class);
     sunbeltTeams = new ArrayList<>();
     initSunbeltTeams();
     initGroundScore();
-    this.sprite = new Sprite(50, GROUND_LEVEL, 50, 50);
+    this.sprite = new Sprite(50, GROUND_LEVEL, 75, 75);
     this.obstacles = new ArrayList<>();
     this.score = 0;
     this.isRunning = true;
@@ -63,8 +64,10 @@ public class Game extends JPanel implements KeyListener {
 
   private void loadBackgroundMusic() {
     try {
+      InputStream inputStream = resourceFinder.findInputStream("game_music.wav");
+      BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
       AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-          resourceFinder.findInputStream("game_music.wav"));
+          bufferedInputStream);
       backgroundMusic = AudioSystem.getClip();
       backgroundMusic.open(audioInputStream);
       backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
@@ -112,6 +115,7 @@ public class Game extends JPanel implements KeyListener {
     setPreferredSize(dimension);
   }
 
+
   public void startGameLoop() {
     startTimeMillis = System.currentTimeMillis();
     if (!isGameLoopRunning) { // Check if the game loop is not already running
@@ -131,6 +135,24 @@ public class Game extends JPanel implements KeyListener {
         while (isRunning) {
           long currentTime = System.currentTimeMillis();
           playBackgroundMusic();
+          sprite.updateProjectiles(PANEL_WIDTH);
+
+          // Check for collisions between projectiles and obstacles
+          List<Projectile> projectiles = sprite.getProjectiles();
+          for (int i = 0; i < projectiles.size(); i++) {
+            Projectile proj = projectiles.get(i);
+            for (int j = 0; j < obstacles.size(); j++) {
+              GameObstacle obstacle = obstacles.get(j);
+              if (proj.intersects(obstacle)) {
+                // Remove both the projectile and the obstacle
+                projectiles.remove(i);
+                obstacles.remove(j);
+                score++;
+                i--;  // Adjust the index for projectiles
+                break;  // Exit the inner loop as the projectile is gone
+              }
+            }
+          }
           obstacleSpeedFactor = 1.0f + ((float) elapsedTimeMillis / 10000L);
           if (currentTime - lastUpdateTime >= updateInterval) {
             sprite.update(GROUND_LEVEL);
@@ -213,9 +235,15 @@ public class Game extends JPanel implements KeyListener {
 
     g2.drawString(String.format("%d", score), 120, 27);
     if (elapsedTimeMillis < 4000L)
-      g2.drawString("Press Enter to Jump over Sunbelt foes", 250, 100);
+    {
+      g2.drawString("Press SPACE to Jump over Sunbelt foes", 220, 100);
+      g2.drawString("And ENTER to ZAP!", 300, 150);
+    }
     sprite.draw(g2);
-
+    for (Projectile p : sprite.getProjectiles())
+    {
+      p.draw(g2);
+    }
     for (GameObstacle obstacle : obstacles) {
       obstacle.draw(g2);
     }
@@ -229,6 +257,10 @@ public class Game extends JPanel implements KeyListener {
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_SPACE) {
       sprite.jump();
+    }
+    if (e.getKeyCode() == KeyEvent.VK_ENTER)
+    {
+      sprite.shoot();
     }
   }
 

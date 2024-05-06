@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FloppyDuke:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FloppyDuke_jar</output-path>
+    <root id="archive" name="FloppyDuke.jar">
+      <element id="module-output" name="FloppyDuke" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/schule/spring24/cs349/multimedia2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -52,8 +52,8 @@ public class StartMenu extends JPanel implements KeyListener
     Graphics2D g2 = (Graphics2D) g;
     g2.drawImage(bridgeforth.getScaledInstance(PANEL_WIDTH, PANEL_HEIGHT, Image.SCALE_DEFAULT), 0, 0, PANEL_WIDTH, PANEL_HEIGHT, null);
     g2.setFont(minecraft);
-    g2.setColor(new Color(0xA335DE));
-    String line = "Our sworn enemies in the SBC are on the quad!\navoid any contact with your foes all while\ncontrolling the floating head of...........";
+    g2.setColor(new Color(0xFFC400));
+    String line = "Our sworn enemies of the SBC are on the Quad!\navoid any contact with your foes all while\ncontrolling the floating head of...........";
     int x = 60;
     int y = 75;
     for (String word : line.split("\n"))
@@ -101,6 +101,7 @@ public class StartMenu extends JPanel implements KeyListener
     {
       switcher.startGame();
     }
+
   }
 
     /**

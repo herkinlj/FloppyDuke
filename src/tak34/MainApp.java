@@ -10,7 +10,7 @@ public class MainApp extends JFrame {
 
   public MainApp() throws IOException, FontFormatException {
     // Initialize JFrame
-    setTitle("Game Switcher");
+    setTitle("Floppy Duke");
     setSize(900, 580);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null);
@@ -21,6 +21,7 @@ public class MainApp extends JFrame {
     game = new Game();
 
     // Initially show the StartMenu
+    startMenu.requestFocusInWindow();
     add(startMenu, BorderLayout.CENTER);
 
     // Allow StartMenu to communicate with MainApp

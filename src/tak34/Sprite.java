@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Sprite
 {
@@ -21,6 +22,8 @@ public class Sprite
   public int jumpCount;
   public boolean canJump;
   private static final int MAX_JUMP_COUNT = 4;
+  private ArrayList<Projectile> projectiles;
+
 
 
   public Sprite(int x, int y, int width, int height) throws IOException
@@ -34,6 +37,7 @@ public class Sprite
     InputStream inputStream = resourceFinder.findInputStream("berny.png");
     berny = ImageIO.read(inputStream);
     canJump = true;
+    projectiles = new ArrayList<>();
   }
   public void resetPosition()
   {
@@ -89,4 +93,26 @@ public class Sprite
   {
     return y;
   }
+
+  public void shoot() {
+    projectiles.add(new Projectile(x + width, y + height / 2));  // Start from the right side
+  }
+
+  // Update all projectiles
+  public void updateProjectiles(int panelWidth) {
+    for (int i = 0; i < projectiles.size(); i++) {
+      Projectile proj = projectiles.get(i);
+      proj.move();
+      if (proj.isOutOfScreen(panelWidth)) {
+        projectiles.remove(i);
+        i--;  // Adjust the index after removal
+      }
+    }
+  }
+
+  // Get the list of projectiles (for collision detection)
+  public ArrayList<Projectile> getProjectiles() {
+    return projectiles;
+  }
+
 }
